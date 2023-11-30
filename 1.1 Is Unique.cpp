@@ -1,18 +1,26 @@
 #include <iostream>
 using namespace std;
 
-bool isUnique(string str){
+/* bool isUnique(string str){
     for(int i=0; i<str.length()-1; i++){
         for(int j=i+1; j<str.length(); j++){
-            if(str[i] == ' ' || str[j] == ' '){
-                continue;
-            }
             if(str[i] == str[j]){
                 return false;
             }
         }
     }
     return true;
+} */
+
+bool isUnique(string str){
+    sort(str.begin(), str.end());
+    for (int i=0; i<str.length()-1; i++) {
+        if (str[i] == str[i + 1]) {
+            return false;
+        }
+    }
+    return true;
+    }
 }
 
 int main(){
